@@ -1,10 +1,17 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { useErrorHandler } from 'react-error-boundary';
 
 const ProblematicComponent = () => {
+  const handleError = useErrorHandler();
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       // faking an async error
-      throw new Error("buuuu");
+      try {
+        throw new Error('Something went wrong');
+      } catch (error) {
+        handleError(error);
+      }
     }, 5000);
 
     return () => {
@@ -14,7 +21,7 @@ const ProblematicComponent = () => {
 
   return (
     <div>
-      <p>Hola mundo </p>
+      <p>Hola mundo</p>
     </div>
   );
 };

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // this prevent the compiler from asking react import
+    "jsx": "react-jsx",
+    "checkJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Node",
+    "target": "es2020",
+    "module": "es2015",
+    "baseUrl": "src"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "build",
+    ".vscode",
+    "coverage",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true,
+    "include": [
+      "react",
+      "react-dom",
+      "jest",
+      "testing-library__jest-dom"
+    ]
+  }
+}
